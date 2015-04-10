@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Dapes</title>
+        <script type="text/javascript" src="js/jquery-ui-min/jquery-1.7.2.min.js"></script>
+
+        <!-- jQuery-UI Core files (minified) -->
+        <link type="text/css" href="js/jquery-ui-min/jquery-ui.min.css" rel="stylesheet" />
+        <link type="text/css" href="js/jquery-ui-min/jquery.ui.menubar.css" rel="stylesheet" />
+        <script type="text/javascript" src="js/jquery-ui-min/jquery-ui.min.js"></script>
+
+        <!-- Demo specific files  -->
+        <script type="text/javascript" src="js/demo.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <script type="text/javascript">
+            $("document").ready(function () {
+                $("#slider").submit(function (e) {
+                    /*e.preventDefault();
+                    
+                    var check_list = [];
+                    $('.checkbox_class:checked').each(function () {
+                        check_list.push($(this).val());
+                    });
+
+                    
+                    $.ajax({
+                        type: "POST",
+                        url: "ajax/query.php",
+                        data: {"check_list" : check_list},
+                        dataType: "json",
+                        success: function (data) {
+
+                            $.each(data, function (index) {
+                                $("#results").append("<tr>" + "<td>" + (++index) + "</td>" + "<td>" + data[index].final_species_id_final_species + "</td>" + "<td>" + data[index].feature_id_feature + "</td>" + "</tr>");
+                                console.log(data);
+                            });
+
+                        }
+                    });*/
+                    var array_slider1 = $("#rangeSlider1").slider("option", "values");
+                    $("#text_initial_heigth").val(array_slider1[0]);
+                    $("#text_final_heigth").val(array_slider1[1]);                    
+                    var array_slider2 = $("#rangeSlider2").slider("option", "values");
+                    $("#text_initial_precipitation_rate").val(array_slider2[0]);
+                    $("#text_final_precipitation_rate").val(array_slider2[1]);                    
+
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="demo">
+            <h1>Manejo y uso Planta Útiles</h1>
+
+            <div id="demoTabs">
+                <ul aria-labelledby="demoTabsLabel">
+                    <li><a href="#slider">Slider</a></li>
+                </ul>
+                <!--form id="slider" method="post"-->
+                <form id="slider" method="post" action="controller/Post.php">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="text_list[]" id="text_initial_heigth" class="text_class">
+                            </td>
+                                                        <td>
+                                <input type="hidden" name="text_list[]" id="text_final_heigth" class="text_class">
+                            </td>
+                                                        <td>
+                                <input type="hidden" name="text_list[]" id="text_initial_precipitation_rate" class="text_class">
+                            </td>
+                                                        <td>
+                                <input type="hidden" name="text_list[]" id="text_final_precipitation_rate" class="text_class">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th> Manejo </th>
+                            <th> Alimenticias </th>
+                            <th> Uso en General </th>
+                            <th> Industria o artesanal </th>
+                            <th> Sombra </th>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="1" name="check_list[]" class="checkbox_class">
+                                <label for="bosqueNatural"> Bosque Natural</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="5" name="check_list[]" class="checkbox_class">
+                                <label for="frutas"> Frutas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="11" name="check_list[]" class="checkbox_class">
+                                <label for="maderable"> Maderable </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="28" name="check_list[]" class="checkbox_class">
+                                <label for="tanimos"> Tanimos </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="23" name="check_list[]" class="checkbox_class">
+                                <label for="sombraCafe"> Sombra Cafe </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="2" name="check_list[]" class="checkbox_class">
+                                <label for="plantaciones"> Plantaciones </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="7" name="check_list[]" class="checkbox_class">
+                                <label for="nueces"> Nueces </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="12" name="check_list[]" class="checkbox_class">
+                                <label for="leniaCarbon"> Lenia - Carbon </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="27" name="check_list[]" class="checkbox_class">
+                                <label for="tintes"> Tintes </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="24" name="check_list[]" class="checkbox_class">
+                                <label for="sombraCacao"> Sombra Cacao </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="3" name="check_list[]" class="checkbox_class">
+                                <label for="controlErosion"> Control Erosion </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="6" name="check_list[]" class="checkbox_class">
+                                <label for="tuberculos"> Tuberculos </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="14" name="check_list[]" class="checkbox_class">
+                                <label for="forrajeArbolesArbustos"> Forraje Arboles y Arbustos </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="29" name="check_list[]" class="checkbox_class">
+                                <label for="gomasResinas"> Gomas, Resina </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="25" name="check_list[]" class="checkbox_class">
+                                <label for="sombraPotreros"> Sombra Potreros </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="16" name="check_list[]" class="checkbox_class">
+                                <label for="cobertura"> Cobertura </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="10" name="check_list[]" class="checkbox_class">
+                                <label for="paraPeces"> Para Peces </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="13" name="check_list[]" class="checkbox_class">
+                                <label for="forrajeGamineas"> Forraje Gamineas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="30" name="check_list[]" class="checkbox_class">
+                                <label for="aceites"> Aceites </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="22" name="check_list[]" class="checkbox_class">
+                                <label for="sombraGRAL"> Sombra en GRAL </label>
+                            </td>
+                        </tr>
+                        <tr>                            
+                            <td>
+                                <input type="checkbox" value="19" name="check_list[]" class="checkbox_class">
+                                <label for="cercaViva"> Cerca Viva </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="9" name="check_list[]" class="checkbox_class">
+                                <label for="animalSilvestre"> Para Animal Silvestre </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="45" name="check_list[]" class="checkbox_class">
+                                <label for="venenosasGanado"> Venenosas para el Ganado </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="33" name="check_list[]" class="checkbox_class">
+                                <label for="fibras"> Fibras </label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="26" name="check_list[]" class="checkbox_class">
+                                <label for="barreraViva"> Barrera Viva </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="44" name="check_list[]" class="checkbox_class">
+                                <label for="malezasComestibles"> Malezas Comestibles </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="15" name="check_list[]" class="checkbox_class">
+                                <label for="meliferas"> Meliferas </label>
+                            </td>
+                            <th>
+                                Proteccion Cultivos
+                            </th>
+                            <th>
+                                Otras Especies
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="20" name="check_list[]" class="checkbox_class">
+                                <label for="rompeVientos"> Rompe Vientos </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="8" name="check_list[]" class="checkbox_class">
+                                <label for="otros"> Otros </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="38" name="check_list[]" class="checkbox_class">
+                                <label for="ornamental"> Ornamental </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="35" name="check_list[]" class="checkbox_class">
+                                <label for="insecticidas"> Insecticidas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="41" name="check_list[]" class="checkbox_class">
+                                <label for="macrofitas"> Macrofitas </label>
+                            </td>
+                        </tr>
+                        <tr>   
+                            <td>
+                                <input type="checkbox" value="21" name="check_list[]" class="checkbox_class">
+                                <label for="postesVivos"> Postes Vivos </label>
+                            </td>
+                            <th>
+                                Medicinales
+                            </th>
+                            <td>
+                                <input type="checkbox" value="39" name="check_list[]" class="checkbox_class">
+                                <label for="patronInjerto"> Patron Injerto </label>
+                            </td> 
+                            <td>
+                                <input type="checkbox" value="36" name="check_list[]" class="checkbox_class">
+                                <label for="insecticidasAromaticas"> Insecticidas Aromaticas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="42" name="check_list[]" class="checkbox_class">
+                                <label for="palmeras"> Palmeras </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="18" name="check_list[]" class="checkbox_class">
+                                <label for="abonoVerde"> Abono Verde </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="31" name="check_list[]" class="checkbox_class">
+                                <label for="medicinales"> Medicinales </label>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="34" name="check_list[]" class="checkbox_class">
+                                <label for="fungicidas"> Fungicidas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="40" name="check_list[]" class="checkbox_class">
+                                <label for="venenosas"> Venenosas </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" value="17" name="check_list[]" class="checkbox_class">
+                                <label for="abonoVerdeMulch"> Abono Verde Mulch </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="32" name="check_list[]" class="checkbox_class">
+                                <label for="medicinalVeterinatio"> Medicinal Veterinario </label>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="37" name="check_list[]" class="checkbox_class">
+                                <label for="hierbicidas"> Hierbicidas </label>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="43" name="check_list[]" class="checkbox_class">
+                                <label for="leguminosas"> Leguminosas </label>
+                            </td>
+                        </tr>
+                        <tr>
+                        <div id="slider">
+                            <p>Altitud:</p>
+                            <div class="ui-helper-clearfix">
+                                <span class="sliderValue" id="slider2ValMin"></span>
+                                <span class="sliderValue" id="slider2ValMax"></span>
+                                <div id="rangeSlider1" class="demoWidget"></div>
+                            </div>
+                        </div>
+                        </tr>
+                        <div id="slider"a>
+                            <p>Precipitacion:</p>
+                            <div class="ui-helper-clearfix">
+                                <span class="sliderValue" id="slider2ValMin2"></span>
+                                <span class="sliderValue" id="slider2ValMax2"></span>
+                                <div id="rangeSlider2" class="demoWidget"></div>
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <input type="checkbox" value="4" name="check_list[]" class="checkbox_class">
+                                <label for="climaSeco"> Chima Seco </label>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                        <input type="submit" name="submit" value="Search">
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!-- end tabs -->
+
+        </div><!-- End demo -->
+        <table id="results">
+            <tr>
+                <th> Fila </th>
+                <th> Especie </th>
+                <th> Caracteristica </th>
+            </tr>
+        </table>
+    </body>
+</html>

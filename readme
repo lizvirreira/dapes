@@ -1,0 +1,30 @@
+Hi 
+
+first: create a database called into dabatabase manager "dapes"
+second: copy project directory apache for example: /var/www/
+third: execute through browser the file main.php for example: http://localhost/dapes/main.php
+ 
+Feature
+DBMS: Mysql Innodb
+Language Server: PHP (native)
+Language Client: AJAX
+                 JavaScript 
+
+Database
+dapes/model/chena.mwb (model)
+dapes/model/schema.sql (schema)
+
+Main
+dapes/main.php 
+
+Source code:
+https://github.com/oma378501/dapes
+
+
+Contact me:
+omar.huanca.balboa@gmail.com    (mail)
+omar.huanca                     (skype)
+
+
+
+
